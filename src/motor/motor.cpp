@@ -1,34 +1,16 @@
 #include "motor.h"
 #include "../config/config.h"
 
-void inicializarMotor()
-{
-  for (int i = 0; i < 4; i++)
-  {
-    pinMode(MOTOR_PINS[i], OUTPUT);
-  }
+// TODO: implementar inicializarMotor()
+// - configurar pinMode para os 4 pinos de motor como OUTPUT
+// - usar ledcAttach para PWM nos dois pinos PWM
+// - chamar pararMotores() para iniciar com motores parados
 
-  ledcAttach(PWM_PINS[0], 5000, 8);
-  ledcAttach(PWM_PINS[1], 5000, 8);
+// TODO: implementar pararMotores()
+// - escrever LOW em todos os pinos de motor
+// - escrever 0 nos dois canais PWM com ledcWrite()
 
-  pararMotores();
-}
-
-void pararMotores()
-{
-  for (int i = 0; i < 4; i++)
-  {
-    digitalWrite(MOTOR_PINS[i], LOW);
-  }
-  ledcWrite(0, 0);
-  ledcWrite(1, 0);
-}
-
-void controlarMotor(int velocidadeEsq, int velocidadeDir)
-{
-  velocidadeEsq = constrain(velocidadeEsq, 0, VEL_MAX);
-  velocidadeDir = constrain(velocidadeDir, 0, VEL_MAX);
-
-  ledcWrite(0, velocidadeEsq);
-  ledcWrite(1, velocidadeDir);
-}
+// TODO: implementar controlarMotor()
+// - recebe velocidadeEsq e velocidadeDir
+// - validar com constrain() entre 0 e VEL_MAX
+// - escrever valores PWM com ledcWrite() nos dois canais

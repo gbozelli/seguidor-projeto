@@ -5,7 +5,7 @@
 
 extern BluetoothSerial SerialBT;
 
-void inicializarBluetooth();
-void processarComandosBT();
+// TODO: função para inicializar comunicação Bluetooth
+// TODO: função para processar comandos via Bluetooth
 
 #endif

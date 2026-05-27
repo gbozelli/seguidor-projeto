@@ -4,40 +4,14 @@
 
 BluetoothSerial SerialBT;
 
-void inicializarBluetooth()
-{
-  SerialBT.begin("XerapoBT");
-}
+// TODO: implementar inicializarBluetooth()
+// - chamar SerialBT.begin() com nome do dispositivo BT
 
-void processarComandosBT()
-{
-  if (SerialBT.available())
-  {
-    String comando = SerialBT.readStringUntil('\n');
-    comando.trim();
-
-    if (comando.startsWith("kp "))
-    {
-      KP = comando.substring(3).toFloat();
-    }
-    else if (comando.startsWith("kd "))
-    {
-      KD = comando.substring(3).toFloat();
-    }
-    else if (comando.startsWith("vel "))
-    {
-      VEL_MAX = comando.substring(4).toInt();
-    }
-    else if (comando.startsWith("INICIA"))
-    {
-      start = true;
-      stop_count = 0;
-      instante_inicial = millis();
-    }
-    else if (comando.startsWith("PARA"))
-    {
-      start = false;
-      pararMotores();
-    }
-  }
-}
+// TODO: implementar processarComandosBT()
+// - verificar se SerialBT.available()
+// - ler comando até '\n'
+// - se comando começa com "kp ": atualizar KP com substring e toFloat()
+// - se comando começa com "kd ": atualizar KD
+// - se comando começa com "vel ": atualizar VEL_MAX
+// - se comando começa com "INICIA": ativar start, resetar stop_count, registrar instante_inicial
+// - se comando começa com "PARA": desativar start, parar motores

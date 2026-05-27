@@ -1,51 +1,30 @@
 #include <Arduino.h>
-#include "src/config/config.h"
-#include "src/motor/motor.h"
-#include "src/sensores/sensores.h"
-#include "src/bluetooth/bluetooth.h"
-#include "src/pid/pid.h"
+// TODO: incluir todos os headers dos módulos
+// - config.h
+// - motor.h
+// - sensores.h
+// - bluetooth.h
+// - pid.h
 
 void setup()
 {
-  Serial.begin(115200);
-
-  pinMode(LED_PIN, OUTPUT);
-
-  inicializarMotor();
-  inicializarSensores();
-  inicializarBluetooth();
+  // TODO: inicializar Serial com 115200
+  // TODO: configurar LED_PIN como OUTPUT
+  // TODO: chamar funções de inicialização de cada módulo
 }
 
 void loop()
 {
-  processarComandosBT();
-
-  if (millis() - lastLoopTime < loopInterval)
-  {
-    return;
-  }
-  lastLoopTime = millis();
-
-  lerSensoresQTR();
-
-  linhaPerdida = verificarLinhaPerdida();
-
-  if (linhaPerdida)
-  {
-    pararMotores();
-    return;
-  }
-
-  if (start == true)
-  {
-    calcularPID();
-    if (num_stops > 0)
-    {
-      verificarSensorParagem();
-    }
-  }
-  else
-  {
-    pararMotores();
-  }
+  // TODO: processar comandos BT continuamente
+  
+  // TODO: verificar timing com millis() - não usar delay()
+  // TODO: ler sensores QTR
+  
+  // TODO: verificar se linha foi perdida
+  // - se sim: parar motores e retornar
+  
+  // TODO: se start == true
+  // - calcular PID
+  // - verificar sensor de parada se num_stops > 0
+  // - senão: parar motores
 }

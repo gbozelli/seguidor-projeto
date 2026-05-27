@@ -5,47 +5,20 @@
 QTRSensors qtr;
 uint16_t sensorValues[SENSOR_COUNT];
 
-void inicializarSensores()
-{
-  pinMode(SENSOR_PARADA, INPUT_PULLUP);
-  pinMode(SENSOR_CURVA, INPUT_PULLUP);
+// TODO: implementar inicializarSensores()
+// - configurar pinMode para sensores de parada e curva como INPUT_PULLUP
+// - chamar qtr.setTypeRC()
+// - passar SENSOR_PINS e SENSOR_COUNT para qtr.setSensorPins()
+// - fazer 200 iterações de qtr.calibrate() com delay(10)
 
-  qtr.setTypeRC();
-  qtr.setSensorPins(SENSOR_PINS, SENSOR_COUNT);
+// TODO: implementar lerSensoresQTR()
+// - chamar qtr.read() para preencher sensorValues[]
 
-  // Calibração
-  for (uint16_t i = 0; i < 200; i++)
-  {
-    qtr.calibrate();
-    delay(10);
-  }
-}
+// TODO: implementar verificarLinhaPerdida()
+// - iterar pelos sensorValues
+// - retornar false se algum sensor > 150 (linha encontrada)
+// - retornar true se nenhum sensor detectou (linha perdida)
 
-void lerSensoresQTR()
-{
-  qtr.read(sensorValues);
-}
-
-bool verificarLinhaPerdida()
-{
-  for (int i = 0; i < SENSOR_COUNT; i++)
-  {
-    if (sensorValues[i] > 150)
-    {
-      return false;
-    }
-  }
-  return true;
-}
-
-void verificarSensorParagem()
-{
-  int estadoSensorParada = digitalRead(SENSOR_PARADA);
-
-  if (estadoSensorParada == LOW)
-  {
-    stop_count += 1;
-    pararMotores();
-    start = false;
-  }
-}
+// TODO: implementar verificarSensorParagem()
+// - ler SENSOR_PARADA com digitalRead()
+// - se LOW: incrementar stop_count, parar motores, parar execução

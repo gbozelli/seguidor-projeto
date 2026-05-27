@@ -3,8 +3,8 @@
 
 #include <Arduino.h>
 
-void inicializarMotor();
-void pararMotores();
-void controlarMotor(int velocidadeEsq, int velocidadeDir);
+// TODO: função para inicializar os pinos dos motores
+// TODO: função para parar ambos os motores
+// TODO: função para controlar velocidade dos motores com PWM
 
 #endif

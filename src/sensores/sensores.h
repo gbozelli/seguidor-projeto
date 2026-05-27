@@ -7,9 +7,9 @@
 extern QTRSensors qtr;
 extern uint16_t sensorValues[];
 
-void inicializarSensores();
-void lerSensoresQTR();
-bool verificarLinhaPerdida();
-void verificarSensorParagem();
+// TODO: função para inicializar sensores QTR
+// TODO: função para ler sensores QTR
+// TODO: função para verificar se linha foi perdida
+// TODO: função para detectar sensor de parada
 
 #endif

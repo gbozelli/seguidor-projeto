@@ -5,7 +5,7 @@
 
 extern uint16_t sensorValues[];
 
-void calcularPID();
-int obterPosition();
+// TODO: função para calcular PID e atuar nos motores
+// TODO: função auxiliar para obter posição da linha
 
 #endif
